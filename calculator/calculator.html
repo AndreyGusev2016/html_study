@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Калькулятор</title>
+    <meta content="text/html"; charset="UTF-8">
+    <link rel="stylesheet" href="style_calculator.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
+  </head>
+  <body>
+    <!--Корпус калькулятора-->
+    <div class="main_body">
+      <!--Цифровой дисплей-->
+      <div class="display">
+        <!--Цифры на дисплее-->
+        <div class="digits" id="numbers">0</div>
+      </div>
+      <!--Черная полоса солнечной батареи-->
+      <div class="solar">
+      <!--Солнечная батарея-->
+      <div class="solar_glass"></div>
+      </div>
+      <!--Логотип Hilti-->
+      <div class="hilti_img"><img height="25" src="images/hilti.png" alt="HILTI"></div>
+      <!--Блок цифровой клавиатуры с клавишами-->
+      <div class="num_pad">
+        <button class="button" onclick="onCalculator()">ON</button>
+        <button class="button">MC</button>
+        <button class="button">MR</button>
+        <button class="button">M&#8722</button>
+        <button class="button">M+</button>
+        <button class="button" onclick="buttonCE()">CE</button>
+        <button class="button" onclick="writeInBufer('7')">7</button>
+        <button class="button" onclick="writeInBufer('8')">8</button>
+        <button class="button" onclick="writeInBufer('9')">9</button>
+        <button class="button" onclick="writeInBufer('/')">&#247</button>
+        <button class="button">%</button>
+        <button class="button" onclick="writeInBufer('4')">4</button>
+        <button class="button" onclick="writeInBufer('5')">5</button>
+        <button class="button" onclick="writeInBufer('6')">6</button>
+        <button class="button" onclick="writeInBufer('*')">&#215</button>
+        <button class="button">&#8730</button>
+        <button class="button" onclick="writeInBufer('1')">1</button>
+        <button class="button" onclick="writeInBufer('2')">2</button>
+        <button class="button" onclick="writeInBufer('3')">3</button>
+        <button class="button" onclick="writeInBufer('-')">&#8722</button>
+        <button class="button" onclick="offCalculator()">OFF</button>
+        <button class="button" onclick="writeInBufer('0')">0</button>
+        <button class="button" onclick="writeInBufer('.')">.</button>
+        <button class="button" onclick="writeInBufer('=')">=</button>
+        <button class="button" onclick="writeInBufer('+')">+</button>
+      </div>
+    </div>
+    <!--Блокнот-->
+    <div class="notepad">12134345</div>
+    <!--Скрипт обработки нажатий на клавиши-->
+    <script src="js_calculate.js" charset="UTF-8"></script>
+
+  </body>
+</html>
