@@ -6,28 +6,23 @@ var number2 = null; //Введенная цифра №2
 var result = null; //Результат вычислений
 var divID = 'numbers'; //ID элемента куда выводятся цифры
 
-//Функция выключения калькулятора
-function offCalculator() {
-  calcState = 0;
-  display = '';
+//Функция выключения/включения/обнуления калькулятора
+function offOnCalculator(power) {
+  if (power == 'off') { //нажата клавиша OFF
+    calcState = 0;
+    display = '';
+  } else if (power == 'ce') { //нажата клавиша CE (обнуление последнего введенного значения)
+    if (calcState === 0) return;
+    display = '0';
+  } else { //Нажата клавиша ON
+    calcState = 1;
+    display = '0';
+  }
+
   writeInDisplay(display);
 }
 
-//Функция включения и обнуления калькулятора
-function onCalculator() {
-  calcState = 1;
-  display = '0';
-  writeInDisplay(display);
-}
-
-//Функция обнуления последнего ввденного значения
-function buttonCE() {
-  if (calcState === 0) return;
-  display = '0';
-  writeInDisplay(display);
-}
-
-//Функция записи цифр на экран
+//Функция ввода цифр на экран калькулятора
 function writeInBufer(digit) {
   //Проверяем включен ли калькулятор, нет - ничего не делаем
   if (calcState === 0) return;
@@ -53,37 +48,41 @@ function writeInBufer(digit) {
     writeInDisplay(display);
     return;
   }
-
-  if (digit === '+' || digit === '-' || digit === '*' || digit === '/') {
-    number1 = display + digit;
-    return;
-  }
-
-  if (digit == '=') {
-    result = number1 + display;
-    writeInDisplay(result);
-    return;
-  }
-
+  //Если все нормально прибавляем цифру
   display += digit;
   writeInDisplay(display);
-  /*
-
-  } else if (digit == '+' || digit == '-' || digit == '*' || digit == '/') {
-    if (number1 === null) {
-      number1 = bufer + digit;
-      alert(number1);
-    } else {
-      number2 = bufer;
-      return;
-    }
-  } else
-    buffer = number1 + number2;
-
-*/
-
 }
 
+//Функция обработки нажатий матматических знаков
+function calcFunction(calcbutton) {
+  if (calcState === 0) return;
+
+  if (display.length >= 10  || display == 'EROR') {
+    display = 'EROR';
+    writeInDisplay(display);
+    return;
+  }
+
+  switch (calcbutton) {
+    case '+': number1 = readDisplay() + '+';
+      display = '0';
+      writeInDisplay(display);
+      break;
+
+    case '=': if (number2 === null) {
+      
+    }
+    default: return;
+
+  }
+}
+
+//Функция чтения из divID
+function readDisplay() {
+  return document.getElementById(divID).innerHTML;
+}
+
+//Функция вывода в divID
 function writeInDisplay(display) {
   document.getElementById(divID).innerHTML = display;
 }

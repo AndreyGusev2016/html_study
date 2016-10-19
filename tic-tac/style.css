@@ -1,0 +1,25 @@
+body {
+  background-color: #DAE3E4;
+  margin: 0;
+}
+
+.up {
+  border: solid black;
+  height: 14vh;
+}
+
+.middle {
+  background-color: #5DEBCE;
+  height: 70vh;
+  margin: 0;
+}
+
+.down {
+  border: solid black;
+  height: 14vh;
+
+}
+
+.table tr th {
+  border: 1px solid black;
+}
