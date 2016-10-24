@@ -9,7 +9,7 @@ body {
 }
 
 .middle {
-  background-color: #5DEBCE;
+  background-color: #14bdac;
   height: 70vh;
   margin: 0;
 }
@@ -17,9 +17,27 @@ body {
 .down {
   border: solid black;
   height: 14vh;
+  text-align: center;
+  color: #14bdac;
+  user-select: none;
 
 }
 
-.table tr th {
-  border: 1px solid black;
+
+
+.tic-tac-field {
+  border: 11px solid #14bdac;
+  border-collapse: collapse;
+  margin: auto;
+  position: relative;
+  top: 100px;
+}
+
+td {
+  border: 10px solid grey;
+  text-align: center;
+  font-size: 100px;
+  font-family: Monospace;
+  width: 150px;
+  height: 150px;
 }

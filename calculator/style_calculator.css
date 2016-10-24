@@ -95,14 +95,21 @@ background-repeat: repeat;
 /*Блокнот на столе*/
 .notepad{
   border: 1px solid black;
-  width: 105mm;
-  height: 50mm;
-  float: right;
+  width: 50vh;
+  height: 70vh;
+
+  position: absolute;
+  right: 10mm;
+  top: 10mm;
+
   background-color: white;
-  top: -50mm;
+
   border-radius: 5mm;
   box-shadow: 0 -5px 20px 2px,
     inset 0 0 5px;
+  font-size: 20px;
+  font-family: arial;
+  padding: 10px;
 }
 
 /*Логотип Hilti*/
