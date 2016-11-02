@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Калькулятор</title>
-    <meta content="text/html"; charset="UTF-8" />
+    <meta content="text/html" charset="UTF-8">
     <link rel="stylesheet" href="style_calculator.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
   </head>
@@ -29,24 +29,24 @@
         <button class="button">M&#8722</button>
         <button class="button">M+</button>
         <button class="button" onclick="offOnCalculator('ce')">CE</button>
-        <button class="button" onclick="writeInBufer('7')">7</button>
-        <button class="button" onclick="writeInBufer('8')">8</button>
-        <button class="button" onclick="writeInBufer('9')">9</button>
+        <button class="button" onclick="pressNumber('7')">7</button>
+        <button class="button" onclick="pressNumber('8')">8</button>
+        <button class="button" onclick="pressNumber('9')">9</button>
         <button class="button" onclick="calcFunction('/')">&#247</button>
         <button class="button">%</button>
-        <button class="button" onclick="writeInBufer('4')">4</button>
-        <button class="button" onclick="writeInBufer('5')">5</button>
-        <button class="button" onclick="writeInBufer('6')">6</button>
+        <button class="button" onclick="pressNumber('4')">4</button>
+        <button class="button" onclick="pressNumber('5')">5</button>
+        <button class="button" onclick="pressNumber('6')">6</button>
         <button class="button" onclick="calcFunction('*')">&#215</button>
         <button class="button">&#8730</button>
-        <button class="button" onclick="writeInBufer('1')">1</button>
-        <button class="button" onclick="writeInBufer('2')">2</button>
-        <button class="button" onclick="writeInBufer('3')">3</button>
+        <button class="button" onclick="pressNumber('1')">1</button>
+        <button class="button" onclick="pressNumber('2')">2</button>
+        <button class="button" onclick="pressNumber('3')">3</button>
         <button class="button" onclick="calcFunction('-')">&#8722</button>
         <button class="button" onclick="offOnCalculator('off')">OFF</button>
-        <button class="button" onclick="writeInBufer('0')">0</button>
-        <button class="button" onclick="writeInBufer('.')">.</button>
-        <button class="button" onclick="calcFunction('=')">=</button>
+        <button class="button" onclick="pressNumber('0')">0</button>
+        <button class="button" onclick="pressNumber('.')">.</button>
+        <button class="button" onclick="calculateThis()">=</button>
         <button class="button" onclick="calcFunction('+')">+</button>
       </div>
     </div>

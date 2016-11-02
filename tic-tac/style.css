@@ -1,5 +1,5 @@
 body {
-  background-color: #DAE3E4;
+  background-color: #E1EEF0;
   margin: 0;
 }
 
@@ -18,7 +18,7 @@ body {
   border: solid black;
   height: 14vh;
   text-align: center;
-  color: #14bdac;
+  color: #0E9A8C;
   user-select: none;
 
 }
@@ -29,6 +29,37 @@ body {
   margin: auto;
   position: relative;
   top: 100px;
+}
+
+.level select {
+margin-top: 20px;
+margin-left: 20px;
+border: none;
+background-color: inherit;
+font-size: 20px;
+text-align: center;
+}
+
+.score {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.score div {
+  display: inline-block;
+  border: 1px solid black;
+  margin-left: 25%;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(249, 249, 249);
+}
+
+.score_x{
+  box-shadow: 0 0px 10px 0px;
+}
+
+.score_0{
+  box-shadow: 0 0px 10px 0px;
 }
 
 td {

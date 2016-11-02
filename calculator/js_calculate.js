@@ -1,7 +1,7 @@
 var display = ''; //Экран калькулятора
 var digit = ''; //Переменная какая цифра нажата
 var calcState = 1; //Калькулятор включен =1, калькулятор выключен =0
-var isCalculte = false; //Состояние ждет ли калькулятор ввыода цифры false, либо ждет ввода выражения true
+var isCalculte = false; //Состояние ждет ли калькулятор ввода цифры false, либо ждет ввода выражения true
 var numberArr = ''; //массив введенных цифр
 var result = 0; //Результат вычислений
 var divID = 'numbers'; //ID элемента куда выводятся цифры
@@ -26,17 +26,17 @@ function offOnCalculator(power) {
   writeInHistory(display);
 }
 
-//Функция ввода цифр на экран калькулятора
-function writeInBufer(digit) {
+//ФУНКЦИЯ ОБРАБОТКИ НАЖАТИЙ ЦИФРОВЫХ КНОПОК
+function pressNumber(digit) {
   //Проверяем включен ли калькулятор, нет - ничего не делаем
   if (calcState === 0) return;
 
   //Если идет перебор цифр на экране выводится надпись Eror
-  if (display.length >= 10  || display == 'ERROR') {
-    display = 'ERROR';
-    writeInDisplay(display);
-    return;
-  }
+  // if (display.length >= 10  || display == 'ERROR') {
+  //   display = 'ERROR';
+  //   writeInDisplay(display);
+  //   return;
+  // }
 
   if (isCalculte) {
     display = '0';
@@ -64,45 +64,41 @@ function writeInBufer(digit) {
   writeInDisplay(display);
 }
 
-//Функция обработки нажатий матматических операций
+//ФУНКЦИЯ ОБРАБОТКИ НАЖАТИЙ + ; - ; * ; /
 function calcFunction(calcbutton) {
   if (calcState === 0 || display === 'ERROR') {
     alert('Калькулятор в состоянии ошибки или выключен');
     return;
   }
+  // Если уже нажато математическое действие и ожидется ввод цифры
+  if (isCalculte) return;
 
-  if (!isCalculte) {
-    switch (calcbutton) {
-      case '+':
-        numberArr += readDisplay() + '+';
-        isCalculte = true;
-        break;
+  switch (calcbutton) {
+    case '+':
+      numberArr += readDisplay() + '+';
+      isCalculte = true;
+      break;
 
-      case '-':
-        numberArr += readDisplay() + '-';
-        //display = '0';
-        //writeInDisplay(display);
-        alert(numberArr);
-        break;
+    case '-':
+      numberArr += readDisplay() + '-';
+      //display = '0';
+      //writeInDisplay(display);
+      alert(numberArr);
+      break;
 
-      case '=':
-        numberArr += readDisplay();
-        result = eval(numberArr);
-        writeInDisplay(result);
-        writeInHistory(numberArr + '=' + result);
-        numberArr = result;
-        isCalculte = false;
-        break;
-
-      default: return;
-    }
-  } else {
-    result = eval(numberArr);
-    writeInDisplay(result);
-    writeInHistory(result);
-    numberArr = result;
-    isCalculte = true;
+    default: return;
   }
+}
+
+//ФУНКЦИЯ ОБРАБОТКИ НАЖАТИЯ = И ВЫЧИСЛЕНИЕ РЕЗУЛЬТАТОВ
+function calculateThis() {
+if (isCalculte) return;
+  numberArr += readDisplay();
+  result = eval(numberArr);
+  writeInDisplay(result);
+  writeInHistory(numberArr + '=' + result);
+  numberArr = result;
+  isCalculte = false;
 }
 
 //Функция чтения из divID
@@ -112,6 +108,9 @@ function readDisplay() {
 
 //Функция вывода в divID
 function writeInDisplay(display) {
+  if (display.length >= 10  || display == 'ERROR') {
+    display = 'ERROR';
+  }
   document.getElementById(divID).innerHTML = display;
 }
 

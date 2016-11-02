@@ -95,7 +95,7 @@ background-repeat: repeat;
 /*Блокнот на столе*/
 .notepad{
   border: 1px solid black;
-  width: 50vh;
+  width: 30vh;
   height: 70vh;
 
   position: absolute;
